@@ -30,7 +30,11 @@
 			<artifactId>spring-test</artifactId>
 			<version>4.2.6.RELEASE</version>
 		</dependency>
-
+<dependency>
+    <groupId>org.eluder.coveralls</groupId>
+    <artifactId>coveralls-maven-plugin</artifactId>
+    <version>4.2.0</version>
+</dependency>
 	
 	</dependencies>
 
@@ -97,11 +101,7 @@
 				</executions>
 			</plugin>
 
-<dependency>
-    <groupId>org.eluder.coveralls</groupId>
-    <artifactId>coveralls-maven-plugin</artifactId>
-    <version>4.2.0</version>
-</dependency>
+
 		</plugins>
 
 
