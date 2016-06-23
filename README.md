@@ -1,5 +1,4 @@
-#Twitter application (maven project)
-
+#Twitter application (maven project) ![alt tag](https://travis-ci.org/jmg2014/twitter-app.svg?branch=master)
 
 ###To compile the application:
 mvn package
