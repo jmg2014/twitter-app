@@ -4,4 +4,4 @@ jdk:
 sudo: false
 script: mvn clean package
 after_success:
-  + mvn clean test jacoco:report coveralls:report
+  + mvn clean test coveralls:report
