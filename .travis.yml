@@ -4,4 +4,4 @@ jdk:
 sudo: false
 script: mvn clean test
 after_success:
-  + mvn clean test jacoco:report coveralls:report
+   - mvn clean cobertura:cobertura org.eluder.coveralls:coveralls-maven-plugin:report
