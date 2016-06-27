@@ -5,6 +5,13 @@
 	<artifactId>twitter-app</artifactId>
 	<version>0.0.1</version>
 
+
+
+ <properties>
+ <maven.build.timestamp.format>yyyy-MM-dd'T'HH:mm:ss</maven.build.timestamp.format>
+  </properties>
+  
+  
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
