@@ -9,5 +9,5 @@ package twitter.command;
  */
 public interface Command {
 
-	abstract void execute();
+	void execute();
 }
