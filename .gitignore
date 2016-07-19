@@ -1,5 +1,7 @@
 /target/
 
+.settings/
+
 # Eclipse Core
 .project
 
