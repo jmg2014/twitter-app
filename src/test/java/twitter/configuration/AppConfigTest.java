@@ -4,7 +4,6 @@ package twitter.configuration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.twitter.factory.CommandFactory;
-import org.twitter.factory.CommandFactoryImpl;
 import org.twitter.repository.TwitterRepository;
 import org.twitter.repository.TwitterRepositoryImpl;
 
@@ -20,7 +19,7 @@ public class AppConfigTest {
 
   @Bean
   public CommandFactory factory() {
-    return new CommandFactoryImpl();
+    return new CommandFactory(repository());
   }
 
 

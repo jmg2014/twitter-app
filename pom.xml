@@ -49,6 +49,20 @@
 			<artifactId>jacoco-maven-plugin</artifactId>
 			<version>0.7.7.201606060606</version>
 		</dependency>
+
+		
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.21</version>
+		</dependency>
+	
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>1.7.21</version>
+		</dependency>
+
 	</dependencies>
 
 
@@ -68,7 +82,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
-
+ 				<version>3.0.2</version>
 				<configuration>
 					<archive>
 						<manifest>
@@ -83,6 +97,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-shade-plugin</artifactId>
+				 <version>2.4.3</version>
 				<executions>
 					<execution>
 						<phase>package</phase>
