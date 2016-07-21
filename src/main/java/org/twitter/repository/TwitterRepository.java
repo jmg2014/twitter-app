@@ -1,21 +1,58 @@
 package org.twitter.repository;
 
+import org.springframework.stereotype.Component;
+
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 
-/**
- * Repository of the application
- *
- * @author Jorge Manrique
- * @version 1.0
- */
-public interface TwitterRepository {
+@Component
+public class TwitterRepository {
 
-  void saveUser(String user);
+  private Map<String, User> users = new HashMap<String, User>();
 
-  void savePost(String user, Post post);
+  public TwitterRepository() {}
 
-  Optional<User> findUser(String username);
 
-  int countUsers();
+  public void saveUser(String user) {
+    users.put(user, new User(user));
+  }
+
+
+  public void savePost(String username, Post post) {
+
+    User user = null;
+
+    if (!users.containsKey(username)) {
+
+      user = new User(username);
+
+      users.put(username, user);
+
+    } else {
+
+      user = users.get(username);
+
+    }
+
+    user.addPost(post);
+
+    // Notify to followers the new post
+    user.notifyFollower(post);
+
+  }
+
+
+  public Optional<User> findUser(String username) {
+
+    User user = users.get(username);
+    return Optional.ofNullable(user);
+
+  }
+
+
+  public int countUsers() {
+    return users.size();
+  }
 
 }
