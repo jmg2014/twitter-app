@@ -1,4 +1,4 @@
-package twitter.util;
+package org.twitter.util;
 
 /**
  * Helper to simulate delays between commands

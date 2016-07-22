@@ -1,7 +1,7 @@
-package twitter.command;
+package org.twitter.command;
 
 import static org.junit.Assert.assertEquals;
-import static twitter.util.TestHelper.delayBetweenCommand;
+import static org.twitter.util.TestHelper.delayBetweenCommand;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,12 +11,11 @@ import org.springframework.test.annotation.DirtiesContext.ClassMode;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.twitter.command.Command;
+import org.twitter.configuration.AppConfigTest;
 import org.twitter.factory.CommandFactory;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-
-import twitter.configuration.AppConfigTest;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = AppConfigTest.class)

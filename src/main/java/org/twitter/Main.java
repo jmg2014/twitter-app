@@ -6,6 +6,9 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.stereotype.Component;
 import org.twitter.configuration.AppConfig;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
 @Component
 public class Main {
 
@@ -22,7 +25,17 @@ public class Main {
   private TwitterConsole twitterConsole;
 
   private void start(String[] args) {
-    twitterConsole.start();
+
+    boolean exit = false;
+
+    while (!exit) {
+
+      System.out.print("> ");
+
+      BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+
+      exit = twitterConsole.console(bufferedReader);
+    }
   }
 }
 

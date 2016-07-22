@@ -1,4 +1,4 @@
-package twitter.configuration;
+package org.twitter.configuration;
 
 
 import org.springframework.context.annotation.Bean;

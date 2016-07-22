@@ -7,7 +7,6 @@ import org.twitter.factory.CommandFactory;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 
 /**
  * Twitter app
@@ -17,40 +16,55 @@ import java.io.InputStreamReader;
  */
 public class TwitterConsole {
 
-  @Autowired
+
   private CommandFactory factory;
 
+  @Autowired
+  public TwitterConsole(CommandFactory factory) {
+    this.factory = factory;
+  }
+
   /**
-   * Starting point.
+   * Process the console.
    *
    * 
    */
-  public void start() {
+  public boolean console(BufferedReader bufferedReader) {
+
+
+    boolean exit = false;
 
     Command command = null;
+
     Command exitCommand = new ExitCommand();
 
-    do {
-      try {
-        System.out.print("> ");
 
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        String line = null;
-
-        line = bufferedReader.readLine();
-
-        command = factory.createCommand(line);
-
-        command.execute();
+    try {
 
 
-      } catch (RuntimeException ex) {
-        throw ex;
-      } catch (IOException ex) {
-        System.out.println("ERROR, you should speak with the administrator.");
+      String line = bufferedReader.readLine();
+
+      command = factory.createCommand(line);
+
+      command.execute();
+
+
+      if (exitCommand.equals(command)) {
+        exit = true;
       }
 
-    } while (!exitCommand.equals(command));
 
+    } catch (RuntimeException ex) {
+
+      throw ex;
+
+    } catch (IOException ex) {
+      System.out.println("ERROR, you should speak with the administrator.");
+
+    }
+
+
+    return exit;
   }
+
 }

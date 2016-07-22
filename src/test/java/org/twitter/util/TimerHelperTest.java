@@ -1,4 +1,4 @@
-package twitter.util;
+package org.twitter.util;
 
 import static org.junit.Assert.assertTrue;
 

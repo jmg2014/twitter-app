@@ -1,4 +1,4 @@
-package twitter.command;
+package org.twitter.command;
 
 import static org.junit.Assert.assertEquals;
 
@@ -10,13 +10,12 @@ import org.springframework.test.annotation.DirtiesContext.ClassMode;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.twitter.command.Command;
+import org.twitter.configuration.AppConfigTest;
 import org.twitter.factory.CommandFactory;
 import org.twitter.repository.TwitterRepository;
 import org.twitter.repository.User;
 
 import java.util.Optional;
-
-import twitter.configuration.AppConfigTest;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = AppConfigTest.class)
