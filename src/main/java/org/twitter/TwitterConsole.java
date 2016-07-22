@@ -1,6 +1,5 @@
 package org.twitter;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.twitter.command.Command;
 import org.twitter.command.ExitCommand;
 import org.twitter.factory.CommandFactory;
@@ -19,7 +18,6 @@ public class TwitterConsole {
 
   private CommandFactory factory;
 
-  @Autowired
   public TwitterConsole(CommandFactory factory) {
     this.factory = factory;
   }

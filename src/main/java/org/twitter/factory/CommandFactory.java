@@ -1,6 +1,5 @@
 package org.twitter.factory;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.twitter.command.Command;
 import org.twitter.command.ExitCommand;
@@ -26,7 +25,8 @@ public class CommandFactory {
   private static String TOKEN_ACTION = "->";
   private TwitterRepository repository;
 
-  @Autowired
+  public CommandFactory() {};
+
   public CommandFactory(TwitterRepository repository) {
     this.repository = repository;
   }
