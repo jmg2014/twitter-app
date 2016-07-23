@@ -13,6 +13,6 @@ import java.util.Set;
  */
 public interface DisplayMessage {
 
-  public void message(Set<Post> message);
+  void message(Set<Post> message);
 
 }
