@@ -40,17 +40,11 @@ public class FollowCommand implements Command {
 
       // Updating all the posts from the follower to user
       Optional<Set<Post>> maybePost = follower.getPosts();
-      if (maybePost.isPresent()) {
 
-        Set<Post> posts = maybePost.get();
-        for (Post post : posts) {
+      maybePost.ifPresent(
+          allPosts -> allPosts.stream().filter(post -> post.getOwner().equals(follower.getName()))
+              .forEach(post -> user.addPost(post)));
 
-          if (post.getOwner().equals(follower.getName())) {
-            user.addPost(post);
-          }
-        }
-
-      }
 
     }
 
