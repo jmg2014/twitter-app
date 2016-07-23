@@ -122,6 +122,29 @@
 
 			</plugin>
 
+
+			<!-- ADDED FOR Integration test -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<version>1.11</version>
+				<executions>
+					<execution>
+						<id>add-test-source</id>
+						<phase>process-resources</phase>
+						<goals>
+							<goal>add-test-source</goal>
+						</goals>
+						<configuration>
+							<sources>
+								<source>src/it/java</source>
+							</sources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-failsafe-plugin</artifactId>
@@ -141,6 +164,9 @@
 					</execution>
 				</executions>
 			</plugin>
+			<!-- Integration test -->
+
+
 
 			<!-- ADDED FOR Spock -->
 			<plugin>
@@ -172,7 +198,7 @@
 			<!-- SPOCK -->
 
 
-		    <!-- ADDED FOR COVERALLS-->
+			<!-- ADDED FOR COVERALLS -->
 			<plugin>
 				<groupId>org.eluder.coveralls</groupId>
 				<artifactId>coveralls-maven-plugin</artifactId>
@@ -208,7 +234,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
-		<!-- COVERALLS  -->
+		<!-- COVERALLS -->
 
 	</build>
 

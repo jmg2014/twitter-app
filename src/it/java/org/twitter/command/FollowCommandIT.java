@@ -1,5 +1,6 @@
 package org.twitter.command;
 
+
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
