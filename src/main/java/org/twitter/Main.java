@@ -12,19 +12,19 @@ import java.io.InputStreamReader;
 @Component
 public class Main {
 
+  @Autowired
+  private TwitterConsole twitterConsole;
 
   public static void main(String[] args) {
     ApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfig.class);
 
     Main main = ctx.getBean(Main.class);
-    main.start(args);
+    main.start();
 
   }
 
-  @Autowired
-  private TwitterConsole twitterConsole;
 
-  private void start(String[] args) {
+  private void start() {
 
     boolean exit = false;
 

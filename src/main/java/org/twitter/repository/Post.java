@@ -4,6 +4,10 @@ import java.time.LocalDateTime;
 
 public class Post implements Comparable<Post> {
 
+  private String owner;
+  private String comment;
+  private LocalDateTime dateTime;
+
   public String getComment() {
     return comment;
   }
@@ -13,10 +17,6 @@ public class Post implements Comparable<Post> {
     return dateTime;
   }
 
-
-  private String owner;
-  private String comment;
-  private LocalDateTime dateTime;
 
 
   public Post(String owner, String comment, LocalDateTime dateTime) {
