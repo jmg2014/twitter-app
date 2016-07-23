@@ -30,10 +30,7 @@ public class UnknownCommand implements Command {
     if (obj == null) {
       return false;
     }
-    if (getClass() != obj.getClass()) {
-      return false;
-    }
-    return true;
+    return getClass() != obj.getClass();
   }
 
 }
