@@ -1,5 +1,5 @@
 <a href="https://github.com/jmg2014/twitter-app/blob/master/LICENSE"><img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" alt="License"></a>
-![alt tag](https://travis-ci.org/jmg2014/twitter-app.svg?branch=master) <a href='https://coveralls.io/github/jmg2014/twitter-app?branch=master'><img src='https://coveralls.io/repos/github/jmg2014/twitter-app/badge.svg?branch=master' alt='Coverage Status' /></a>
+![alt tag](https://travis-ci.org/jmg2014/twitter-app.svg?branch=master)
 
 #Twitter application (maven project)
 
