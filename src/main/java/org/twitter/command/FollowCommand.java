@@ -66,7 +66,7 @@ public class FollowCommand implements Command {
     if (obj == null) {
       return false;
     }
-    return getClass() != obj.getClass();
+    return getClass() == obj.getClass();
   }
 
 }

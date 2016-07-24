@@ -66,7 +66,7 @@ public class WallCommand implements Command, DisplayMessage {
     if (obj == null) {
       return false;
     }
-    return getClass() != obj.getClass();
+    return getClass() == obj.getClass();
   }
 
 }
