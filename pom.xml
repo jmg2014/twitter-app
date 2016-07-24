@@ -81,6 +81,14 @@
 			<version>3.2.4</version>
 		</dependency>
 
+
+<!-- https://mvnrepository.com/artifact/com.codacy/codacy-coverage-reporter -->
+<dependency>
+    <groupId>com.codacy</groupId>
+    <artifactId>codacy-coverage-reporter</artifactId>
+    <version>1.0.10</version>
+</dependency>
+
 	</dependencies>
 
 
