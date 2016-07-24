@@ -3,5 +3,6 @@ jdk:
   - oraclejdk8
 sudo: false
 script: mvn clean test-compile failsafe:integration-test failsafe:verify
+
 after_success:
- - bash <(curl -s https://codecov.io/bash)
+  - bash <(curl -s https://codecov.io/bash)
