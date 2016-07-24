@@ -4,4 +4,4 @@ jdk:
 sudo: false
 script: mvn clean test-compile failsafe:integration-test failsafe:verify
 after_success:
-   - mvn clean cobertura:cobertura org.eluder.coveralls:coveralls-maven-plugin:report
+ - bash <(curl -s https://codecov.io/bash)
