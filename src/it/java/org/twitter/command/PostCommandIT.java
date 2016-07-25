@@ -10,7 +10,6 @@ import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.annotation.DirtiesContext.ClassMode;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.twitter.command.Command;
 import org.twitter.configuration.AppConfigTest;
 import org.twitter.factory.CommandFactory;
 import org.twitter.repository.Post;
@@ -92,17 +91,16 @@ public class PostCommandIT {
     Command alicePostCommand = factory.createCommand("Alice -> Today is a good day");
     alicePostCommand.execute();
 
-    delayBetweenComand();
+
     Command bobPostCommand = factory.createCommand("Bob -> Wales won yesterday! :)");
     bobPostCommand.execute();
 
-    // Sleep the test to simulate time between different commands
-    delayBetweenComand();
+
 
     Command aliceFollowCommand = factory.createCommand("Alice follows Bob");
     aliceFollowCommand.execute();
 
-    delayBetweenComand();
+
 
     // when: Bob post a new message
     Command bobNewPostCommand = factory.createCommand("Bob -> Waiting for the next match");
@@ -123,12 +121,5 @@ public class PostCommandIT {
     }
   }
 
-  private void delayBetweenComand() {
-    try {
-      Thread.sleep(10);
-    } catch (InterruptedException ex) {
-      ex.printStackTrace();
-    }
-  }
 
 }

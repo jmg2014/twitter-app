@@ -1,7 +1,6 @@
 package org.twitter.command;
 
 import static org.junit.Assert.assertEquals;
-import static org.twitter.util.TestHelper.delayBetweenCommand;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,7 +9,6 @@ import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.annotation.DirtiesContext.ClassMode;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.twitter.command.Command;
 import org.twitter.configuration.AppConfigTest;
 import org.twitter.factory.CommandFactory;
 
@@ -32,17 +30,16 @@ public class WallCommandIT {
     Command postAlice = factory.createCommand("Alice -> Today is not a good day");
     postAlice.execute();
 
-    delayBetweenCommand();
+
 
     Command postAlice2 = factory.createCommand("Alice -> England lost yesteday :(");
     postAlice2.execute();
 
-    delayBetweenCommand();
+
 
     Command postBob = factory.createCommand("Bob -> Today is raining");
     postBob.execute();
 
-    delayBetweenCommand();
 
 
     // When: Alice use wall command
@@ -71,28 +68,28 @@ public class WallCommandIT {
     Command postAlice = factory.createCommand("Alice -> Today is not a good day");
     postAlice.execute();
 
-    delayBetweenCommand();
+
 
     Command postAlice2 = factory.createCommand("Alice -> England lost yesteday :(");
     postAlice2.execute();
 
-    delayBetweenCommand();
+
 
     Command postBob = factory.createCommand("Bob -> Waiting for the train.");
     postBob.execute();
 
-    delayBetweenCommand();
+
 
     Command postCharlie = factory.createCommand("Charlie -> Today is raining");
     postCharlie.execute();
 
-    delayBetweenCommand();
+
 
     // when: Charlie follows Alice and Bob
     Command followAlice = factory.createCommand("Charlie follows Alice");
     followAlice.execute();
 
-    delayBetweenCommand();
+
 
     Command followBob = factory.createCommand("Charlie follows Bob");
     followBob.execute();

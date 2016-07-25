@@ -1,7 +1,6 @@
 package org.twitter.command;
 
 import static org.junit.Assert.assertEquals;
-import static org.twitter.util.TestHelper.delayBetweenCommand;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,7 +9,6 @@ import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.annotation.DirtiesContext.ClassMode;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.twitter.command.Command;
 import org.twitter.configuration.AppConfigTest;
 import org.twitter.factory.CommandFactory;
 
@@ -33,13 +31,11 @@ public class ReadCommandIT {
     Command postAlice = factory.createCommand("Alice -> Today is a good day");
     postAlice.execute();
 
-    delayBetweenCommand();
+
     Command postAlice2 = factory.createCommand("Alice -> England lost yesteday :(");
     postAlice2.execute();
 
-    // Sleep the test to simulate time between different post messages
-    // If the time is exactly the same, Alice will not copy the post from Bob
-    delayBetweenCommand();
+
 
     Command postBob = factory.createCommand("Bob -> Today is raining");
     postBob.execute();

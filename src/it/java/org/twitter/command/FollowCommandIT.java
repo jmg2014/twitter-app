@@ -10,7 +10,6 @@ import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.annotation.DirtiesContext.ClassMode;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.twitter.command.Command;
 import org.twitter.configuration.AppConfigTest;
 import org.twitter.factory.CommandFactory;
 import org.twitter.repository.TwitterRepository;
@@ -76,14 +75,6 @@ public class FollowCommandIT {
     Command postAlice = factory.createCommand("Alice -> Today is a good day");
     postAlice.execute();
 
-
-    // Sleep the test to simulate time between different post messages
-    // If the time is exactly the same, Alice will not copy the post from Bob
-    try {
-      Thread.sleep(10);
-    } catch (InterruptedException ex) {
-      ex.printStackTrace();
-    }
 
     Command postBob = factory.createCommand("Bob -> Today is raining");
     postBob.execute();

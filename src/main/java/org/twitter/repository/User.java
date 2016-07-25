@@ -3,6 +3,7 @@ package org.twitter.repository;
 import org.twitter.observable.Follower;
 import org.twitter.observable.UserObserver;
 
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
@@ -14,7 +15,9 @@ public class User implements UserObserver, Follower {
 
   private Set<User> followers = new HashSet<User>();
 
-  private Set<Post> posts = new TreeSet<Post>();
+  private Set<Post> posts = new TreeSet<Post>(Comparator.comparing(Post::getDateTime).reversed()
+      .thenComparing(Post::getOwner).thenComparing(Post::getComment));
+
 
   public String getName() {
     return name;
