@@ -15,9 +15,21 @@ public class User implements UserObserver, Follower {
 
   private Set<User> followers = new HashSet<User>();
 
-  private Set<Post> posts = new TreeSet<Post>(Comparator.comparing(Post::getDateTime).reversed()
-      .thenComparing(Post::getOwner).thenComparing(Post::getComment));
+  private Comparator<Post> comparator = Comparator.comparing(Post::getDateTime).reversed()
+      .thenComparing(Post::getOwner).thenComparing(Post::getComment);
 
+  private Set<Post> myPosts = new TreeSet<Post>(comparator);
+
+  private Set<Post> followeePosts = new TreeSet<Post>(comparator);
+
+  public Set<Post> getMyPosts() {
+    return myPosts;
+  }
+
+
+  public Optional<Set<Post>> getFolloweePosts() {
+    return Optional.ofNullable(followeePosts);
+  }
 
   public String getName() {
     return name;
@@ -30,11 +42,11 @@ public class User implements UserObserver, Follower {
 
 
   public Optional<Set<Post>> getPosts() {
-    return Optional.ofNullable(posts);
+    return Optional.ofNullable(myPosts);
   }
 
   public void addPost(Post post) {
-    posts.add(post);
+    myPosts.add(post);
   }
 
   public User(String name) {
@@ -75,7 +87,7 @@ public class User implements UserObserver, Follower {
 
 
   @Override
-  public void addFollower(User follower) {
+  public void addfollower(User follower) {
     followers.add(follower);
   }
 
@@ -88,7 +100,8 @@ public class User implements UserObserver, Follower {
 
   @Override
   public void updatePost(Post post) {
-    posts.add(post);
+    followeePosts.add(post);
 
   }
+
 }

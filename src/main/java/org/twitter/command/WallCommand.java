@@ -6,8 +6,10 @@ import org.twitter.repository.User;
 import org.twitter.util.TimeHelper;
 
 import java.time.LocalDateTime;
+import java.util.Comparator;
 import java.util.Optional;
 import java.util.Set;
+import java.util.TreeSet;
 
 /**
  * Implements the command: wall: "user_name" wall
@@ -21,6 +23,9 @@ public class WallCommand implements Command, DisplayMessage {
 
   private TwitterRepository repository;
 
+  private Comparator<Post> comparator = Comparator.comparing(Post::getDateTime).reversed()
+      .thenComparing(Post::getOwner).thenComparing(Post::getComment);
+
   public WallCommand(String user, TwitterRepository repository) {
     this.user = user;
     this.repository = repository;
@@ -28,6 +33,7 @@ public class WallCommand implements Command, DisplayMessage {
 
   @Override
   public void message(Set<Post> message) {
+
     message.stream().forEach(post -> System.out.println(post.getOwner() + " - " + post.getComment()
         + " " + TimeHelper.difference(post.getDateTime(), LocalDateTime.now())));
 
@@ -42,9 +48,21 @@ public class WallCommand implements Command, DisplayMessage {
 
       User user = maybeUser.get();
       Optional<Set<Post>> maybePost = user.getPosts();
-      if (maybePost.isPresent()) {
-        message(maybePost.get());
+      Optional<Set<Post>> maybeFolloweePost = user.getFolloweePosts();
+
+
+      TreeSet<Post> posts = new TreeSet<Post>(comparator);
+
+
+      if (maybeFolloweePost.isPresent()) {
+        posts.addAll(maybeFolloweePost.get());
       }
+      if (maybePost.isPresent()) {
+        posts.addAll(maybePost.get());
+      }
+
+      message(posts);
+
 
     }
 

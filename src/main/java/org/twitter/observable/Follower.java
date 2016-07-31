@@ -11,7 +11,7 @@ import org.twitter.repository.User;
  */
 public interface Follower {
 
-  void addFollower(User user);
+  void addfollower(User user);
 
   void notifyFollower(Post post);
 

@@ -49,7 +49,7 @@ class FollowCommandSpec extends Specification {
     then: "Alice sholud have all Bob's posts"
 
 
-    maybeUser.get().getPosts().get().size()== 1
-    maybeUser.get().getPosts().get().contains(post);
+    maybeUser.get().getFolloweePosts().get().size()== 1
+    maybeUser.get().getFolloweePosts().get().contains(post);
   }
 }

@@ -113,7 +113,13 @@ public class PostCommandIT {
     } else {
       Optional<Set<Post>> maybePost = result.get().getPosts();
       if (maybePost.isPresent()) {
-        assertEquals(3, maybePost.get().size());
+        assertEquals(1, maybePost.get().size());
+      } else {
+        fail("The user does not have any post");
+      }
+      Optional<Set<Post>> maybeFolloweePost = result.get().getFolloweePosts();
+      if (maybeFolloweePost.isPresent()) {
+        assertEquals(2, maybeFolloweePost.get().size());
       } else {
         fail("The user does not have any post");
       }

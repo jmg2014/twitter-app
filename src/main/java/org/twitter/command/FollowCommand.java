@@ -17,12 +17,12 @@ public class FollowCommand implements Command {
 
 
   private String user;
-  private String follower;
+  private String followee;
   private TwitterRepository repository;
 
-  public FollowCommand(String user, String follower, TwitterRepository repository) {
+  public FollowCommand(String user, String followee, TwitterRepository repository) {
     this.user = user;
-    this.follower = follower;
+    this.followee = followee;
     this.repository = repository;
   }
 
@@ -30,20 +30,18 @@ public class FollowCommand implements Command {
   public void execute() {
 
     Optional<User> maybeUser = repository.findUser(user);
-    Optional<User> maybeFollower = repository.findUser(follower);
+    Optional<User> maybeFollower = repository.findUser(followee);
     if (maybeUser.isPresent() && maybeFollower.isPresent()) {
       User user = maybeUser.get();
-      User follower = maybeFollower.get();
+      User followee = maybeFollower.get();
 
       // Updating the follower
-      follower.addFollower(user);
+      followee.addfollower(user);
 
       // Updating all the posts from the follower to user
-      Optional<Set<Post>> maybePost = follower.getPosts();
+      Optional<Set<Post>> maybePost = followee.getPosts();
 
-      maybePost.ifPresent(
-          allPosts -> allPosts.stream().filter(post -> post.getOwner().equals(follower.getName()))
-              .forEach(post -> user.addPost(post)));
+      maybePost.ifPresent(allPosts -> allPosts.stream().forEach(post -> user.updatePost(post)));
 
 
     }

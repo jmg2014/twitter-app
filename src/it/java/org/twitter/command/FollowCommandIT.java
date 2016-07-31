@@ -86,7 +86,12 @@ public class FollowCommandIT {
 
     // then: Alice should have the Bob's post
     Optional<User> alice = repository.findUser("Alice");
-    assertEquals(2, alice.get().getPosts().get().size());
+    assertEquals(1, alice.get().getFolloweePosts().get().size());
+
+
+    // and: Alice should have her post
+    assertEquals(1, alice.get().getPosts().get().size());
+
 
   }
 
