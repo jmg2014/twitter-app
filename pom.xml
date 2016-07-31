@@ -75,6 +75,13 @@
 			<version>1.0-groovy-2.4</version>
 		</dependency>
 
+		<!-- Spock mock console -->
+		<dependency>
+			<groupId>org.objenesis</groupId>
+			<artifactId>objenesis</artifactId>
+			<version>2.4</version>
+		</dependency>
+
 		<dependency>
 			<groupId>cglib</groupId>
 			<artifactId>cglib-nodep</artifactId>
@@ -82,19 +89,19 @@
 		</dependency>
 
 
-<!-- https://mvnrepository.com/artifact/com.codacy/codacy-coverage-reporter -->
-<dependency>
-    <groupId>com.codacy</groupId>
-    <artifactId>codacy-coverage-reporter</artifactId>
-    <version>1.0.10</version>
-</dependency>
+		<!-- https://mvnrepository.com/artifact/com.codacy/codacy-coverage-reporter -->
+		<dependency>
+			<groupId>com.codacy</groupId>
+			<artifactId>codacy-coverage-reporter</artifactId>
+			<version>1.0.10</version>
+		</dependency>
 
-<!-- https://mvnrepository.com/artifact/com.typesafe.netty/netty-http-pipelining -->
-<dependency>
-    <groupId>com.typesafe.netty</groupId>
-    <artifactId>netty-http-pipelining</artifactId>
-    <version>1.1.4</version>
-</dependency>
+		<!-- https://mvnrepository.com/artifact/com.typesafe.netty/netty-http-pipelining -->
+		<dependency>
+			<groupId>com.typesafe.netty</groupId>
+			<artifactId>netty-http-pipelining</artifactId>
+			<version>1.1.4</version>
+		</dependency>
 
 
 	</dependencies>
@@ -220,7 +227,7 @@
 
 
 			<!-- ADDED FOR CODECOV -->
-		 <plugin>
+			<plugin>
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
 				<version>0.7.5.201505241946</version>

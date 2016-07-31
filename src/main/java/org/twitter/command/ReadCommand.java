@@ -30,7 +30,7 @@ public class ReadCommand implements Command, DisplayMessage {
   @Override
   public void message(Set<Post> message) {
 
-    message.stream().filter(p -> p.getOwner().equals(user)).forEach(post -> System.out.println(
+    message.stream().forEach(post -> System.out.println(
         post.getComment() + " " + TimeHelper.difference(post.getDateTime(), LocalDateTime.now())));
 
   }
