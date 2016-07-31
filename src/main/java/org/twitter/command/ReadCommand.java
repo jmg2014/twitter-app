@@ -40,13 +40,7 @@ public class ReadCommand implements Command, DisplayMessage {
   public void execute() {
 
     Optional<User> result = repository.findUser(user);
-    if (result.isPresent()) {
-      User user = result.get();
-      Optional<Set<Post>> maybePosts = user.getPosts();
-      if (maybePosts.isPresent()) {
-        message(maybePosts.get());
-      }
-    }
+    result.ifPresent(user -> user.getPosts().ifPresent(post -> message(post)));
   }
 
   @Override
