@@ -10,6 +10,7 @@
 	<properties>
 		<maven.build.timestamp.format>yyyy-MM-dd'T'HH:mm:ss</maven.build.timestamp.format>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<docker.image.prefix>springcloud</docker.image.prefix>
 	</properties>
 
 
@@ -258,8 +259,28 @@
 					<aggregate>true</aggregate>
 				</configuration>
 			</plugin>
+			
+			<!--docker-->
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>docker-maven-plugin</artifactId>
+				 <version>0.4.11</version>
+				<configuration>
+					<imageName>${docker.image.prefix}/${project.artifactId}</imageName>
+					<dockerDirectory>src/main/docker</dockerDirectory>
+					<resources>
+						<resource>
+							<targetPath>/</targetPath>
+							<directory>${project.build.directory}</directory>
+							<include>${project.build.finalName}.jar</include>
+						</resource>
+					</resources>
+				</configuration>
+			</plugin>
+			
+			
 		</plugins>
-		<!-- COVERALLS -->
+
 
 	</build>
 
