@@ -16,3 +16,6 @@ mnv test
 
 ###To run the integration tests:
 mvn clean test-compile failsafe:integration-test failsafe:verify
+
+###To build the Docker image:
+mvn clean package docker:build
